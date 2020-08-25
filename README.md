@@ -54,6 +54,15 @@ import fontBinary from '!!binary-base64-loader!./funkyicons.ttf';
 
 (The `!!` prefix is not obligatory but probably you will need it to remove other loaders from the chain which could apply based on the webpack config)
 
+To make the inline use work under Typescript add this to a Typescript definition file in your project (`*.d.ts`, for example `shims-vue.d.ts`):
+
+```typescript
+declare module "!!binary-base64-loader!*" {
+  const content: string;
+  export default content;
+}
+```
+
 ## Options
 
 |            Name             |    Type     | Default | Description            |
